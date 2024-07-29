@@ -18,6 +18,14 @@ const Home = () => {
     setTasks([...tasks, task]);
   };
 
+  const updateTask = (updatedTask) => {
+    setTasks(tasks.map(task => task.id === updatedTask.id ? updatedTask : task));
+  };
+
+  const deleteTask = (taskId) => {
+    setTasks(tasks.filter(task => task.id !== taskId));
+  };
+
   return (
     <div className="home-container">
       <h1>Todo List</h1>
@@ -25,7 +33,7 @@ const Home = () => {
         <TaskForm onCreate={addTask} />
       </div>
       <div className="task-list-container">
-        <TaskList tasks={tasks} />
+        <TaskList tasks={tasks} onUpdateTask={updateTask} onDeleteTask={deleteTask} />
       </div>
     </div>
   );

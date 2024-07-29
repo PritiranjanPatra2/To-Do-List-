@@ -3,7 +3,7 @@ import TaskItem from './TaskItem';
 import SearchBar from './SearchBar';
 import './TaskList.css';
 
-const TaskList = ({ tasks }) => {
+const TaskList = ({ tasks, onUpdateTask, onDeleteTask }) => {
   const [searchQuery, setSearchQuery] = useState('');
 
   const handleSearch = (query) => {
@@ -18,7 +18,7 @@ const TaskList = ({ tasks }) => {
     <div className="task-list">
       <SearchBar onSearch={handleSearch} />
       {filteredTasks.map(task => (
-        <TaskItem key={task.id} task={task} />
+        <TaskItem key={task.id} task={task} onUpdate={onUpdateTask} onDelete={onDeleteTask} />
       ))}
     </div>
   );
