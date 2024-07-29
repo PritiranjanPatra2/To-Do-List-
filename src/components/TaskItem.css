@@ -1,17 +1,23 @@
+/* TaskItem.css */
 .task-item {
     padding: 10px;
     border-bottom: 1px solid #ddd;
     display: flex;
     flex-direction: column;
     cursor: pointer;
+    align-items: flex-start;
+    background-color: #fff;
+    border-radius: 5px;
+    margin-bottom: 10px;
   }
   
   .task-title {
     font-size: 1.2rem;
     display: flex;
- 
-    justify-content: space-around;
     align-items: center;
+    justify-content: space-between;
+    width: 75%;
+    padding: 10px 0;
   }
   
   .task-title.done {
@@ -19,9 +25,26 @@
     color: #999;
   }
   
+  .task-title .edit-fields {
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+  }
+  
   .task-title input[type="checkbox"] {
     margin-right: 10px;
-    width: 60px;
+    flex-shrink: 0;
+    width: 40px;
+  }
+  
+  .task-title input[type="text"],
+  .task-title textarea {
+    margin: 5px 0;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    font-size: 1rem;
+    width: 100%;
   }
   
   .task-title button {
@@ -31,14 +54,46 @@
     border-radius: 5px;
     padding: 5px 10px;
     cursor: pointer;
+    margin-left: 10px;
+    flex-shrink: 0;
   }
   
   .task-title button:hover {
     background-color: darkred;
   }
   
+  .edit-actions {
+    display: flex;
+    justify-content: flex-end;
+    width: 100%;
+    margin-top: 10px;
+  }
+  
+  .edit-actions button {
+    background-color: green;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    padding: 5px 10px;
+    cursor: pointer;
+    margin-left: 10px;
+  }
+  
+  .edit-actions button:nth-child(2) {
+    background-color: blue;
+  }
+  
+  .edit-actions button:hover {
+    background-color: darkgreen;
+  }
+  
+  .edit-actions button:nth-child(2):hover {
+    background-color: darkblue;
+  }
+  
   .task-details {
-    padding-left: 20px;
+    padding-left: 30px;
+    width: 100%;
   }
   
   .task-description {
